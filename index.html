@@ -6,82 +6,9 @@
         <meta name="viewport" content="width=device-width">
         <script src="https://cdn.babylonjs.com/babylon.js"></script>
         <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
-        <script defer src="Game.js"></script>
-        <style>
-            html, body {
-                background-color:black;
-                width:100%;
-                height:100%;
-                overflow:hidden;
-                margin:0;
-            }
-            img {
-                border-radius:10px;
-            }
-            canvas {
-                width:100%;
-                height:100%;
-                display:block;
-            }
-
-            /* Per */
-            #Per {
-                animation:Light 5.5s forwards;
-                width:100%;
-                height:100%;
-                top:0;
-                left:0;
-                display:flex;
-                position:absolute;
-                justify-content:center;
-                align-items:center;
-                opacity:0;
-            }
-            #Logo {
-                animation:Logo 5.5s forwards;
-            }
-
-            @keyframes Light {
-                0% { opacity:0; }
-                30% { opacity:1; }
-                70% { opacity:1; }
-                100% {
-                    display:none;
-                    opacity:0;
-                }
-            }
-            @keyframes Logo {
-                0% { opacity:0; transform:scale(0.90); }
-                40% { opacity:1; transform:scale(0.95); }
-                70% { opacity:1; }
-                100% {
-                    transform:scale(1);
-                    display:none;
-                    opacity:0;
-                }
-            }
-
-            /* Menu */
-            #Menu {
-                width:100%;
-                height:100%;
-                top:0;
-                left:0;
-                display:none;
-                position:absolute;
-                justify-content:center;
-                align-items:center;
-            }
-            /* #MenuButt {
-                color:black;
-                background-color:white;
-                width:200px;
-                height:50px;
-                font-size:20px;
-                border:2px solid lightgrey;
-                border-radius:10px;
-            } */
-        </style>
+        <script defer src="scripts/Game.js"></script>
+        <link rel="shortcut icon" href="https://sigmentium.github.io/Photo/Sigmentium.jpeg">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <canvas id="Main"></canvas>
@@ -90,18 +17,13 @@
                 <img src="https://sigmentium.github.io/Photo/Sigmentium.jpeg" id="Logo" width="300px" height="300px">
             </div>
             <div id="Menu">
-                <img src="assets/img/background.png" width="100%" height="100%">
-                <!-- <div>
-                    <button id="MenuButt">Новая игра</button>
-                    <button id="MenuButt">Сохранённые игры</button>
-                    <button id="MenuButt">Настройки</button>
-                </div> -->
+                <div id="MenuButtons">
+                    <button id="NewGame">Новая игра</button>
+                    <button id="SaveGame">Сохранённые игры</button>
+                    <button id="Settings">Настройки</button>
+                </div>
             </div>
         </div>
-        <script>
-            setTimeout(() => {
-                document.getElementById('Menu').style.display = 'flex';
-            }, 5500);
-        </script>
+        <script src="scripts/UI.js"></script>
     </body>
 </html>

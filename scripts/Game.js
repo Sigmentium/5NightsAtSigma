@@ -2,9 +2,11 @@ const canvas = document.getElementById('Main');
 const engine = new BABYLON.Engine(canvas, true);
 const scene = new BABYLON.Scene(engine);
 
-let Scene1 = () => {
+let camera;
+
+let MainScene = () => {
     // Камера
-    const camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 2, -5), scene);
+    camera = new BABYLON.UniversalCamera('camera', new BABYLON.Vector3(0, 2, -5), scene);
     camera.attachControl(canvas, true);
     camera.speed = 0.1;
 
@@ -13,31 +15,22 @@ let Scene1 = () => {
     light.intensity = 1.0;
 
     // Земля
-    const ground = BABYLON.MeshBuilder.CreateGround('ground', {width:20, height:20}, scene);
+    // const ground = BABYLON.MeshBuilder.CreateGround('ground', {width:20, height:20}, scene);
 
     // Объект
-    BABYLON.SceneLoader.ImportMesh(
-        null,
-        "assets/",
-        "",
-        scene,
-
-        function (meshes) {
-            meshes.forEach((mesh) => {
-                mesh.position = new BABYLON.Vector3(0, 0, 0);
-                mesh.scaling = new BABYLON.Vector3(1, 1, 1);
-
-                let material = new BABYLON.StandardMaterial("material", scene);
-                material.diffuseColor = new BABYLON.Color3(1, 2, 5);
-                mesh.material = material;
-            });
-        }
-    );
+    // BABYLON.SceneLoader.ImportMesh(
+    //     null,
+    //     "assets/models/map/",
+    //     "",
+    //     scene
+    // );
 
     engine.runRenderLoop(() => {
         scene.render();
     });
 }
+
+MainScene();
 
 window.addEventListener('resize', () => {
     engine.resize();

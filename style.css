@@ -1,0 +1,84 @@
+html, body {
+    width:100%;
+    height:100%;
+    font-family:Verdana;
+    overflow:hidden;
+    margin:0;
+}
+img {
+    border-radius:10px;
+}
+canvas {
+    width:100%;
+    height:100%;
+    display:block;
+}
+
+/* Per */
+#Per {
+    animation:Light 5.5s forwards;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:flex;
+    position:absolute;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+}
+#Logo {
+    animation:Logo 5.5s forwards;
+}
+
+/* Menu */
+#Menu {
+    background-image:url('assets/img/background.png');
+    background-size:cover;
+    background-position:center;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    display:none;
+    position:absolute;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+#MenuButtons {
+    display:flex;
+    flex-direction:column;
+    margin-left:-50%;
+    gap:10px;
+}
+#NewGame, #SaveGame, #Settings {
+    color:black;
+    background-color:darkred;
+    width:300px;
+    height:50px;
+    font-size:20px;
+    cursor:pointer;
+    border:2px solid grey;
+    border-radius:10px;
+}
+
+@keyframes Light {
+    0% { opacity:0; }
+    30% { opacity:1; }
+    70% { opacity:1; }
+    100% {
+        display:none;
+        opacity:0;
+    }
+}
+@keyframes Logo {
+    0% { opacity:0; transform:scale(0.90); }
+    40% { opacity:1; transform:scale(0.95); }
+    70% { opacity:1; }
+    100% {
+        transform:scale(1);
+        display:none;
+        opacity:0;
+    }
+}
